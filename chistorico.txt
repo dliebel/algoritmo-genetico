@@ -1,0 +1,4 @@
+Generacion 0 Fitnnes 15 info genetico: 1111
+Generacion 1 Fitnnes 15 info genetico: 1111
+Generacion 2 Fitnnes 11 info genetico: 1011
+Generacion 3 Fitnnes 11 info genetico: 1011
