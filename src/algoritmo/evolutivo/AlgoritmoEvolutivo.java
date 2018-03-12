@@ -25,10 +25,11 @@ public class AlgoritmoEvolutivo {
         do {
            
             t++;
-            g.printWithFitness();
+           // g.printWithFitness();
             g.select();
-          //  g.printWithFitness();
+          // g.printWithFitness();
             g.crossver();
+            g.muted();
             g.evaluationPopulation(t);
             //falta si ha convergido salir
             System.out.print("\n--------Generacion "+t+" --------\n");

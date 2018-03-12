@@ -13,15 +13,15 @@ public class Config {
     /**
      * cantidad de individios
      */
-    public static int N =10; 
+    public static int N =30; 
     /**
      * datos de cromosomas 
      */
-    public static int L =4;
+    public static int L =30;
     /**
      * número maximo de generaciones
      */
-    public static int T =3;
+    public static int T =100;
     /**
      * cantidad de generaciones
      */

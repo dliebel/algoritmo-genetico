@@ -17,7 +17,7 @@ import java.io.PrintWriter;
  */
 public class Population {
 
-    public long elite = 0;
+    public double elite = 0.0;
     public int eliteIndex = 0;
     public int t;
     private final String path = "C:\\Users\\dliebel.DESKTOP-SM7VE8H\\historico_genoma.txt";
@@ -36,17 +36,17 @@ public class Population {
 
     }
 
-    private void initHistorical()  {
+    private void initHistorical() {
 
         File file = new File(path);
         try {
             BufferedWriter bw;
             if (file.exists()) {
                 bw = new BufferedWriter(new FileWriter(file));
-               
+
             } else {
                 bw = new BufferedWriter(new FileWriter(file));
-              
+
             }
             bw.close();
         } catch (IOException e) {
@@ -54,7 +54,7 @@ public class Population {
 
     }
 
-    public void saveHistorical(int g, Individual i)  {
+    public void saveHistorical(int g, Individual i) {
         File file = new File(path);
 ////        if (file.exists()){
 //           System.out.print("archivos existe "+(file.getCanonicalPath()));
@@ -67,7 +67,14 @@ public class Population {
             fichero = new FileWriter(file, true);
             pw = new PrintWriter(fichero);
 
-            pw.println("Generacion " + g + " Fitnnes " + i.getFitness() + " info genetico: " + i.toString());
+            pw.printf("%s %2d %s %10f %s %10f %s %n",
+                    "G: ",
+                    g,
+                    " Fitnnes ",
+                    i.getFitness(),
+                    " x: " ,
+                    i.getX(),
+                    "  info genetico: " + i.toString() + "(" + i.getValorD() + ")");
 
         } catch (IOException e) {
             e.printStackTrace();

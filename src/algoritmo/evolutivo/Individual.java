@@ -19,9 +19,10 @@ import java.util.Random;
  */
 public class Individual {
 
-    private long fitness = 0;
+    private double fitness = 0;
     private final int[]  genes = new int[Config.L];
-    
+    private double x; //la variable x del individuo
+    private double valorD; //valor en decimal del individuo
     /**
      * genera los cromosomas de cada individuo de forma aleatoria
      */
@@ -31,16 +32,26 @@ public class Individual {
             this.genes[i] = r.nextInt(2);
         }
     }
+    
+    public double calFitness(){
+        this.x= Utils.calX(genes);
+        this.fitness =Utils.funtionObjetive(this.x);
+       
+        return this.fitness;
+    }
     /**
      * obtiene el fitness 
      * @return 
      */
-    public long getFitness() {
-        if (this.fitness == 0) {
-            //utilizamos un utis para calcular el fitness
-            this.fitness = Utils.calFitness(genes);
-        }
+    public double getFitness() {
         return this.fitness;
+    }
+    /**
+     * retorna el valor de x de la funcion
+     * @return 
+     */
+    public double getX() {
+        return x;
     }
 
     
@@ -68,6 +79,11 @@ public class Individual {
 
     public int size() {
         return this.genes.length;
+    }
+
+    public double getValorD() {
+        this.valorD= Utils.decodeBtoD(genes);
+        return valorD;
     }
     
     
